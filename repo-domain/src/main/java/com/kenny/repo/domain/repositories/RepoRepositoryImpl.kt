@@ -21,6 +21,7 @@ class RepoRepositoryImpl @Inject constructor(
             fullName = fullName,
             description = description,
             language = language,
+            visibility = visibility,
         )
     }
 }

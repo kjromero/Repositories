@@ -1,6 +1,5 @@
 package com.kenny.repo.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.kenny.base.viewmodel.BaseViewModel
@@ -22,7 +21,7 @@ class RepositoriesViewModel @Inject constructor(
     private val _data = MutableLiveData(RepositoriesUiModel())
     val data = _data as LiveData<RepositoriesUiModel>
 
-    fun getRecipes() {
+    fun getRepositories() {
         disposables.add(
             getRepositoriesUseCase.execute(Unit)
                 .subscribeOn(Schedulers.io())
@@ -49,7 +48,10 @@ class RepositoriesViewModel @Inject constructor(
                         )
                     },
                     {
-                        Log.e("ERROR", "Error ${it.message}")
+                        _data.value = data.value?.copy(
+                            screen = RepositoriesScreen.Error,
+                            errorMessage = it.message.toString()
+                        )
                     }
                 )
         )

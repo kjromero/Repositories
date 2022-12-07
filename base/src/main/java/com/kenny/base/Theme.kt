@@ -20,7 +20,7 @@ private val LightThemeColors = lightColors(
 )
 
 @Composable
-fun RepoAppTheme(
+fun RepoTheme(
     content: @Composable () -> Unit
 ) {
     MaterialTheme(

@@ -20,10 +20,12 @@ class MapRepositoriesDataToRepositoriesUiModelUsecase @Inject constructor() :
     private fun Repository.toBaseModel(): RepositoryModel {
         return RepositoryModel(
             id = id,
-            language = language,
+            language =  language,
             name = name,
             fullName = fullName,
             description = description,
+            visibility = visibility,
         )
     }
+
 }
