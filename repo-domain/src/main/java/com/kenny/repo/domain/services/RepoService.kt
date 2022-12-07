@@ -7,7 +7,7 @@ import io.reactivex.rxjava3.core.Single
 
 interface RepoService {
 
-    @GET("search/repositories?q=kotlin&per_page=20&page=1")
+    @GET("repositories?q=kotlin&per_page=20&page=1")
     fun getRepositories(): Single<RepositoriesResponse>
 
 }
