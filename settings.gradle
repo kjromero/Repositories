@@ -14,3 +14,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Repositories"
 include ':app'
+include ':repo-domain'
+include ':repo-entities'
+include ':core'
+include ':base'
+include ':repo'
