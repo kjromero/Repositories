@@ -10,8 +10,8 @@ import javax.inject.Inject
 class RepoRepositoryImpl @Inject constructor(
     private val repoService: RepoService
 ) : RepoRepository {
-    override fun getRepositories(): Single<List<Repository>> {
-        return repoService.getRepositories().map { it.items.map { repository ->  repository.toBaseModel() } }
+    override fun getRepositories(query: String): Single<List<Repository>> {
+        return repoService.getRepositories(query, 30, 1).map { it.items.map { repository ->  repository.toBaseModel() } }
     }
 
     private fun RepositoryResponse.toBaseModel(): Repository {

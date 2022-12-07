@@ -8,9 +8,9 @@ import javax.inject.Inject
 
 class GetRepositoriesUseCase @Inject constructor(
     private val repoRepository: RepoRepositoryImpl
-) : SingleUseCase<Unit, List<@JvmSuppressWildcards Repository>>() {
+) : SingleUseCase<String, List<@JvmSuppressWildcards Repository>>() {
 
-    override fun execute(input: Unit): Single<List<Repository>> {
-        return repoRepository.getRepositories()
+    override fun execute(input: String): Single<List<Repository>> {
+        return repoRepository.getRepositories(input)
     }
 }

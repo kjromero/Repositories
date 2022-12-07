@@ -12,6 +12,8 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
+const val KOTLIN_QUERY = "kotlin"
+
 @HiltViewModel
 class RepositoriesViewModel @Inject constructor(
     private val getRepositoriesUseCase: GetRepositoriesUseCase,
@@ -23,7 +25,7 @@ class RepositoriesViewModel @Inject constructor(
 
     fun getRepositories() {
         disposables.add(
-            getRepositoriesUseCase.execute(Unit)
+            getRepositoriesUseCase.execute(KOTLIN_QUERY)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe {
